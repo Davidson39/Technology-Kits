@@ -3,12 +3,17 @@ import busio
 import board
 from digitalio import DigitalInOut
 from adafruit_bluefruitspi import BluefruitSPI
+from digitalio import DigitalInOut, Direction
 
 spi_bus = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 cs = DigitalInOut(board.D6)
 irq = DigitalInOut(board.D11)
 rst = DigitalInOut(board.D10)
 bluefruit = BluefruitSPI(spi_bus, cs, irq, rst, debug=False)
+
+# Setup for onboard led
+led = DigitalInOut(board.D13)
+led.direction = Direction.OUTPUT
 
 # Initialize the device and perform a factory reset
 print("Initializing the Bluefruit LE SPI Friend module")
@@ -47,12 +52,14 @@ while True:
         if not resp:
             continue  # nothin'
         print("Read %d bytes: %s" % (len(resp), resp))
+        command = resp.decode('utf-8').strip()
+
         # Now write it!
-        print("Writing reverse...")
-        send = []
-        for i in range(len(resp), 0, -1):
-            send.append(resp[i-1])
-        print(bytes(send))
-        bluefruit.uart_tx(bytes(send))
+        if command == "LED ON":
+            led.value = True
+            print("LED turned ON")
+        elif command == "LED OFF":
+            led.value = False
+            print("LED turned OFF")
 
     print("Connection lost.")
