@@ -4,6 +4,7 @@
 
 import board
 import displayio
+import terminalio
 from i2cdisplaybus import I2CDisplayBus
 from adafruit_display_text import label
 import adafruit_displayio_ssd1306
