@@ -1,12 +1,14 @@
+#This code is for the Bicycle Data project.
+#Find instructions at https://bucknellmakers.dozuki.com/Guide/Bicycle+Data+Measurement/285?lang=en
+#Eli Foster 7/4/24
+
 import board
 import displayio
 from i2cdisplaybus import I2CDisplayBus
-import terminalio
 from adafruit_display_text import label
 import adafruit_displayio_ssd1306
 import adafruit_adxl34x
 import time
-import digitalio
 
 displayio.release_displays()
 
