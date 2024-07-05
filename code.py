@@ -9,6 +9,7 @@ import adafruit_am2320
 import adafruit_display_text
 from adafruit_display_text import label
 import terminalio
+import time
 
 try:
     from i2cdisplaybus import I2CDisplayBus
@@ -58,19 +59,19 @@ while True:
 
     #Find correct temperature
     if temp > 32.5:
-        group.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermTOP.bmp"), pixel_shader = bitmap.pixel_shader)
+        splash.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermTOP.bmp"), pixel_shader = bitmap.pixel_shader))
         time.sleep(5)
-    elif temp > 27.5:
-        group.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermMID.bmp"), pixel_shader = bitmap.pixel_shader)
+    elif temp > 25:
+        splash.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermMID.bmp"), pixel_shader = bitmap.pixel_shader))
         time.sleep(5)
-    elif temp > 22.5:
-        group.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermBOT.bmp"), pixel_shader = bitmap.pixel_shader)
+    elif temp > 20:
+        splash.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermBOT.bmp"), pixel_shader = bitmap.pixel_shader))
         time.sleep(5)
     elif temp > 15:
-        group.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermBOTHALF.bmp"), pixel_shader = bitmap.pixel_shader)
+        splash.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermBOTHALF.bmp"), pixel_shader = bitmap.pixel_shader))
         time.sleep(5)
     else:
-        group.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermometer.bmp"), pixel_shader = bitmap.pixel_shader)
+        splash.insert(0, displayio.TileGrid(displayio.OnDiskBitmap("/thermometer.bmp"), pixel_shader = bitmap.pixel_shader))
         time.sleep(5)
     splash.pop()
     splash.pop()
