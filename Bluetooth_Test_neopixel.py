@@ -77,7 +77,12 @@ while True:
         elif command == "GRADIENT":
             for i in range(num_pixel):
                 pixels[i] = (i * 32, 0, 255 - i * 32)  # Gradient from red to blue
-                print("Neopixel gradient is on")
-
+            print("Neopixel gradient is on")
+        elif command == "OFF":
+            pixels.brightness = 0
+            print("Neopixel is now Off")
+        elif command == "ON":
+            pixels.brightness = 0.5
+            print("Neopixel is now On")
 
     print("Connection lost.")
