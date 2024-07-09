@@ -1,3 +1,4 @@
+# Run this code to see if your camera is functioning correctly
 import time
 import board
 import busio
