@@ -1,3 +1,4 @@
+# Run this code to test and make sure your bluetooth is working correctly
 import time
 import busio
 import board
