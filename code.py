@@ -1,3 +1,4 @@
+# Make sure you try the challenge first before using this code. 
 import time
 import busio
 import board
