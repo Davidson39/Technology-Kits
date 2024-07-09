@@ -1,4 +1,4 @@
-# Make sure you try the challenge first before using this code. 
+# Make sure you try the challenge first before using this code. Rename this file to code.py for it to work on your Feather M4
 import time
 import busio
 import board
