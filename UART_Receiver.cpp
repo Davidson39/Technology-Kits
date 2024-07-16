@@ -1,3 +1,5 @@
+#include "Particle.h"
+
 void setup() {
     Serial.begin(9600); // Initialize USB serial communication for debugging
     Serial1.begin(9600); // Initialize hardware UART on default pins (TX: D9, RX: D10)
